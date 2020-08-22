@@ -29,15 +29,19 @@ public class ProductController {
         List<Product> result;
         if (section == null){
             result = productRepository.findAll();
+            productRepository.sumProductsPrices();
         }else {
             result = productRepository.findBySection(section);
+            productRepository.sumProductsSectionPrices(section);
         }
 
         return result.stream()
                 .map(Product::toString)
                 .collect(Collectors.joining("<br/>"));
     }
+
     @PostMapping("/products/add")
+    @ResponseBody
     String add(@RequestParam String name, @RequestParam double price, @RequestParam Section section){
         productRepository.save(new Product(name, price, section));
         return "redirect:/products";

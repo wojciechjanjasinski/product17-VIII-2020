@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Sklep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Strona Sklepu</title>
 </head>
 <body>
-<form action="/products/add" method="post">
-    Nazwa: <label> <input type="text" name="name"><br/>
-</label>
-    Cena: <label> <input type="number" step="0.01" name="price"><br/>
-</label>
-    Kategoria: <label> <select name="section">
-    <option value="GROCERY">artykuły spożywcze</option>
-    <option value="HOUSEHOLD">artykuły gospodarstwa domowego</option>
-    <option value="OTHER">inne</option></select>
-    <input type="submit" value="Prześlij"></label>
+<form method="post" action="index.html">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <h1>Witamy na stronie naszego sklepu!</h1><br/>
+        </div>
+    </div>
+    <div class="container d-flex h-100">
+        <a href="http://localhost:8080/products" target="_blank">Przejdź do pełnej oferty sklepu</a> <br/>
+        <br/>
+    </div>
+    <div class="container d-flex h-100">
+        <a href="http://localhost:8080/products?section=HOUSEHOLD" target="_blank">Przejdź do działu z produktami spożywczymi</a> <br/>
+        <br/>
+    </div>
+    <div class="container d-flex h-100">
+        <a href="http://localhost:8080/products?section=GROCERY" target="_blank">Przejdź do działu z produktami gospodarstwa domowego</a> <br/>
+        <br/>
+    </div>
+    <div class="container d-flex h-100">
+        <a href="http://localhost:8080/products?section=OTHER" target="_blank">Przejdź do działu z innymi produktami</a> <br/>
+    </div>
+    <div class="container d-flex h-100">
+        <a href="http://localhost:63342/product17-VIII-2020/static/product_add.html" target="_blank">Dodaj produkt</a> <br/>
+    </div>
 </form>
 </body>
 </html>

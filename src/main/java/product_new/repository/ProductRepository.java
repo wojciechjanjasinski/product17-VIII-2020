@@ -35,7 +35,12 @@ public class ProductRepository {
     public void save(Product product) {
         listOfProducts.add(product);
     }
-    public double sumProductsPrices (Section section){
+    public double sumProductsPrices(){
+        return listOfProducts.stream()
+                .mapToDouble(Product::getPrice)
+                .sum();
+    }
+    public double sumProductsSectionPrices(Section section){
         return listOfProducts.stream()
                 .filter(product -> product.getSection() == section)
                 .mapToDouble(Product::getPrice)
