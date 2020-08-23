@@ -29,10 +29,12 @@ public class ProductController {
         List<Product> result;
         if (section == null){
             result = productRepository.findAll();
-            productRepository.sumProductsPrices();
+            double sumProductsPrices = productRepository.sumProductsPrices();
+            System.out.println(sumProductsPrices);
         }else {
             result = productRepository.findBySection(section);
-            productRepository.sumProductsSectionPrices(section);
+            double sumProductsSectionPrices = productRepository.sumProductsSectionPrices(section);
+            System.out.println(sumProductsSectionPrices);
         }
 
         return result.stream()
@@ -41,7 +43,6 @@ public class ProductController {
     }
 
     @PostMapping("/products/add")
-    @ResponseBody
     String add(@RequestParam String name, @RequestParam double price, @RequestParam Section section){
         productRepository.save(new Product(name, price, section));
         return "redirect:/products";
