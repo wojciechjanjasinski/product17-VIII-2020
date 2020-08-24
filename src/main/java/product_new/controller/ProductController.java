@@ -30,16 +30,15 @@ public class ProductController {
         if (section == null){
             result = productRepository.findAll();
             double sumProductsPrices = productRepository.sumProductsPrices();
-            System.out.println(sumProductsPrices);
+            return result + " " + sumProductsPrices + " PLN ";
         }else {
             result = productRepository.findBySection(section);
             double sumProductsSectionPrices = productRepository.sumProductsSectionPrices(section);
             System.out.println(sumProductsSectionPrices);
+            return result.stream()
+                    .map(Product::toString)
+                    .collect(Collectors.joining("<br/>")) + " " + sumProductsSectionPrices + " PLN ";
         }
-
-        return result.stream()
-                .map(Product::toString)
-                .collect(Collectors.joining("<br/>"));
     }
 
     @PostMapping("/products/add")
